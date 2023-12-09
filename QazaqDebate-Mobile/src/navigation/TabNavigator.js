@@ -56,9 +56,9 @@ const TabNavigator = () => {
         <Tab.Screen name="Time Keeper" component={DebateKeeperStack} />
         <Tab.Screen name="Инструменты" component={ToolsStack} />
     </Tab.Navigator>
-  )
-}
+  );
+};
 
-export default TabNavigator
+export default TabNavigator;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

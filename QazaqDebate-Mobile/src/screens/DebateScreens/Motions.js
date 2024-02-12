@@ -261,7 +261,7 @@ const Motions = ({ navigation }) => {
           renderItem={({ item }) => (
             <TouchableHighlight
               style={styles.item}
-              onPress={() => navigation.navigate("L3Categories", item)}
+              onPress={() => navigation.navigate("TimerScreen")}
               underlayColor="#f1f1f1"
             >
               <Text style={styles.itemText}>{item.Tournament}</Text>

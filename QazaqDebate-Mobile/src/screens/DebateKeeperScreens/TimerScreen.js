@@ -1,6 +1,7 @@
 // App.js
-import React, { useState, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useRef } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function TimerScreen() {
   const [timer, setTimer] = useState(0);
@@ -35,6 +36,29 @@ export default function TimerScreen() {
 
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Timer Screen</Text>
+        <View style={styles.headerIcons}>
+          <Ionicons
+            name="ios-notifications"
+            size={24}
+            color="black"
+            style={styles.icon}
+          />
+          <Ionicons
+            name="ios-refresh"
+            size={24}
+            color="black"
+            style={styles.icon}
+          />
+          <Ionicons
+            name="ios-options"
+            size={24}
+            color="black"
+            style={styles.icon}
+          />
+        </View>
+      </View>
       <Text style={styles.timer}>{timer}s</Text>
       <View style={styles.buttonContainer}>
         {isActive ? (
@@ -49,9 +73,11 @@ export default function TimerScreen() {
         <TouchableOpacity style={styles.button} onPress={resetTimer}>
           <Text style={styles.buttonText}>Reset</Text>
         </TouchableOpacity>
-       {!isActive && <TouchableOpacity style={styles.button} onPress={toggleTimer}>
-          <Text style={styles.buttonText}>Continue</Text>
-        </TouchableOpacity>}
+        {!isActive && (
+          <TouchableOpacity style={styles.button} onPress={toggleTimer}>
+            <Text style={styles.buttonText}>Continue</Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -60,23 +86,40 @@ export default function TimerScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   timer: {
     fontSize: 40,
     marginBottom: 20,
   },
   buttonContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   button: {
-    backgroundColor: '#3498db',
+    backgroundColor: "#3498db",
     padding: 10,
     margin: 5,
     borderRadius: 5,
   },
   buttonText: {
-    color: 'white',
+    color: "white",
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  headerIcons: {
+    flexDirection: "row",
+  },
+  icon: {
+    marginLeft: 10,
   },
 });

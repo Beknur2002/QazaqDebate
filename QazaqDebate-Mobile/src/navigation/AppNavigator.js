@@ -20,13 +20,14 @@ const AppNavigator = () => {
     const getid = async () => {
       let token = await AsyncStorage.getItem("id_token");
       if (token) {
-        setSigned(true);
+        setSigned(false);
       } else {
         setSigned(false);
       }
     };
     getid();
   }, []);
+
   return (
     <Stack.Navigator
       initialRouteName={signed ? "Tab" : "Auth"}
